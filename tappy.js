@@ -21,7 +21,6 @@
 				if( $el.is( "a" ) ){
 					// set href to null hash during tap. this prevents the address bar from dropping down in iOS
 					href = $el[ 0 ].href;
-					console.log(href);
 					$el[ 0 ].href = "#";
 				}
 			}
