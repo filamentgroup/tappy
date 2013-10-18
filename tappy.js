@@ -16,7 +16,7 @@
 				$( e.target ).trigger( "tap", [ e ] );
 			}
 
-			function start( e ){
+			function start(){
 				lastScroll = w.document.body.scrollTop;
 				if( $el.is( "a" ) ){
 					// set href to null hash during tap. this prevents the address bar from dropping down in iOS
