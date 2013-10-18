@@ -32,3 +32,19 @@ $( "a.my-link" ).bind( "tap", function( e ){
   // go to the e.target.href URL
 }); 
 ```
+
+
+FAQ
+===
+
+- Q: Can I use tappy with the `on` method rather than `bind`?
+A: Nope.
+- Q: Can I unbind a `tap` event?
+A: Nope.
+- Q: Shouldn't this plugin use jQuery's special events API?
+A: Nope.
+- Q: Can I use Tappy with event delegation by binding to the document instead of directly to elements?
+A: Nope.
+- Q: Why?
+A: Nope.
+
