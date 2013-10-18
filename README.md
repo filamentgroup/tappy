@@ -1,16 +1,34 @@
-Tappy! - a lightweight normalized tap event. 
+Tappy! 
 =====
 
+Tappy is a simple normalized tap event for touch, mouse, and keyboard.
+
 Copyright 2013 @scottjehl, Filament Group, Inc. Licensed MIT
+
+Why
+===
+
+Tappy allows you to bind to a `tap` event like you would any other user interaction, like `click`. The advantage of usting Tappy's  `tap` event over `click` is that it will allow you to execute code immediately on touch devices, eliminating the 300ms delay that click events have on platforms like iOS. Once bound to an element, Tappy's `tap` event will fire upon touch or other traditional interactions like mouse click, pressing the enter key, and more. 
+
 
 How-to
 ===
 
-Tappy requires jQuery or a framework of similar API conventions. To use, include `tappy.js` and bind to a tap event. It'll normalize click/touchend/keyboard events to only fire once, as soon as possible (eliminating the 300ms delay on many touch devices).
+Tappy requires jQuery, or a similar framework of matching API conventions. 
+
+To use, include `tappy.js` in your page, select an element and bind to a `tap` event. 
+
 ``` js
-$( "a.foo" ).bind( "tap", function(){ 
-  alert( "tap!" ); 
+$( "a.my-link" ).bind( "tap", function( e ){ 
+  alert( "tap!" );
 }); 
 ```
+In binding to the `tap` event, you'll be automatically preventing the browser's default click handling on the element, so be sure to handle that tap responsibly.
 
-By using this event, you'll be automatically preventing the default click on the element, so it's designed for cases where you want to handle the behavior in a custom way. This limitation may change as we adapt it to work better with delegation.
+To use tappy to create fast-click navigation, you can do something like this:
+
+``` js
+$( "a.my-link" ).bind( "tap", function( e ){ 
+  // go to the e.target.href URL
+}); 
+```
