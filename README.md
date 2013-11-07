@@ -1,7 +1,7 @@
 Tappy! 
 =====
 
-Tappy is a simple normalized tap event for touch, mouse, and keyboard.
+Tappy is a minimal normalized tap event that works with touch, mouse, keyboard, and probably other inputs too.
 
 Copyright 2013 @scottjehl, Filament Group, Inc. Licensed MIT
 
@@ -25,7 +25,7 @@ $( "a.my-link" ).bind( "tap", function( e ){
 ```
 In binding to the `tap` event, you'll be automatically preventing the browser's default click handling on the element, so be sure to handle that tap responsibly.
 
-To use tappy to create fast-click navigation, you can do something like this:
+To use tappy to create fast-click navigation, you could do something like this:
 
 ``` js
 $( "a.my-link" ).bind( "tap", function( e ){ 
@@ -34,17 +34,12 @@ $( "a.my-link" ).bind( "tap", function( e ){
 ```
 
 
-FAQ
+Notes:
 ===
 
-- Q: Can I use tappy with the `on` method rather than `bind`?
-A: Nope.
-- Q: Can I unbind a `tap` event?
-A: Nope.
-- Q: Shouldn't this plugin use jQuery's special events API?
-A: Nope.
-- Q: Can I use Tappy with event delegation by binding to the document instead of directly to elements?
-A: Nope.
-- Q: Why?
-A: Nope.
+This plugin makes several assumptions that may not work well for your project, but we've found them easy enough to work around.
+
+Tappy works best when bound directly to a tappable element. In it's current state, we don't recommend using it with event delegation due to the way it prevents default event behavior. That might change in a future update.
+
+This plugin is built using a very limited portion of jQuery's API in attempt to be compatible with slimmer libraries that share jQuery's syntax. That's why it monkey-patches `bind` for example, rather than using the Special Events API. That said, we could make those changes, but this is working pretty well for our admittedly specific needs at the moment.
 
