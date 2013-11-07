@@ -39,7 +39,7 @@ Notes:
 
 This plugin makes several assumptions that may not work well for your project, but we've found them easy enough to work around.
 
-Tappy works best when bound directly to a tappable element. In it's current state, we don't recommend using it with event delegation due to the way it prevents default event behavior. That might change in a future update.
+Tappy works best when bound directly to a tappable element. In its current state, we don't recommend using it with event delegation due to the way it prevents default event behavior. That might change in a future update.
 
 This plugin is built using a very limited portion of jQuery's API in attempt to be compatible with slimmer libraries that share jQuery's syntax. That's why it monkey-patches `bind` for example, rather than using the Special Events API. That said, we could make those changes, but this is working pretty well for our admittedly specific needs at the moment.
 
