@@ -8,24 +8,23 @@
 				lastE,
 				resetTimer,
 				lastScroll,
-				scrollTolerance = 15,
-				href;
+				scrollTolerance = 15;
 
 			function trigger( e ){
+				e.stopImmediatePropagation();
 				e.preventDefault();
-				$( e.target ).trigger( "tap", [ e ] );
+				$( e.target ).trigger( "tap", [ e, $( e.target ).attr( "href" ) ] );
 			}
 
-			function start(){
+			function start( e ){
 				lastScroll = w.document.body.scrollTop;
-				if( $el.is( "a" ) ){
-					// set href to null hash during tap. this prevents the address bar from dropping down in iOS
-					href = $el[ 0 ].href;
-					$el[ 0 ].href = "#";
-				}
 			}
 
 			function end( e ){
+
+				if( e.ctrlKey || e.metaKey ){
+					return;
+				}
 
 				e.preventDefault();
 
@@ -44,12 +43,6 @@
 				if( e.type === "touchend" && Math.abs( w.document.body.scrollTop - lastScroll ) > scrollTolerance ){
 					return false;
 				}
-
-				// set href back
-				if( href ){
-					$el[ 0 ].href = href;
-				}
-				href = null;
 
 				trigger( e );
 			}
