@@ -20,6 +20,8 @@
 
 	<p>Here's a link with Tappy applied: <a href="http://example.com" class="tappy">Tappy!</a></p>
 
+	<label for="mycheck"><input type="checkbox" id="mycheck"> Checkbox</label>
+	<label for="myradio"><input type="radio" id="myradio"> Radio</label>
 
 <h2>Source</h2>
 <pre><code>
@@ -35,6 +37,10 @@ $( &quot;a&quot; ).bind( &quot;tap&quot;, function( e ){
 	<script>
 		$( "a" ).bind( "tap", function( e ){
 			alert( "Tap!" );
+		});
+
+		$( 'input' ).bind( "tap", function( e ){
+			alert( "Tap Checkbox!" );
 		});
 	</script>
 	
