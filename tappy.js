@@ -78,4 +78,4 @@
 		return oldBind.apply( this, [evt, callback] );
 	};
 
-}( this, jQuery ));
+}( window, jQuery ));
