@@ -61,11 +61,11 @@
 
 	// monkeybind
 	var oldBind = $.fn.bind;
-	$.fn.bind = function( evt, callback ){
+	$.fn.bind = function( evt ){
 		if( /(^| )tap( |$)/.test( evt ) ){
 			tap( this );
 		}
-		return oldBind.apply( this, [evt, callback] );
+		return oldBind.apply( this, arguments );
 	};
 
 }( this, jQuery ));
