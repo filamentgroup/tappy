@@ -13,7 +13,14 @@
 				scrollTolerance = 15;
 
 			function trigger( e ){
-				$( e.target ).trigger( "tap", [ e, $( e.target ).attr( "href" ) ] );
+				var $target = $( e.target ),
+					href = $target.attr( "href" );
+
+				$target
+					.trigger( "tap", [ e, href ] )
+					// this click should not cause another call to trigger
+					.trigger( "click", [ e, href, false ] );
+
 				e.stopImmediatePropagation();
 			}
 
@@ -49,7 +56,10 @@
 				}
 
 				w.tapHandling = e.type;
-				trigger( e );
+				// if the last argument is false, this is the click we triggered, so don't trigger again
+				if (arguments[arguments.length - 1] !== false) {
+					trigger( e );
+				}
 			}
 
 			$el
