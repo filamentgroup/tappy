@@ -5,6 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Tappy</title>
+	<link href="docs.css" rel="stylesheet" />
 	<style>
 		body {
 			margin: 3em;
@@ -14,23 +15,28 @@
 	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 	<script src="tappy.js"></script>
 </head>
-<body>
+<body class="docs">
+	<div class="header">
+		<a href="http://filamentgroup.com/"><h1 id="fg-logo">Filament Group</h1></a>
+	</div>
 
-	<h1>Tappy test.</h1>
+	<div class="docs-main">
 
-	<p>Here's a link with Tappy applied: <a href="http://example.com" class="tappy">Tappy!</a></p>
+		<h3>Tappy test.</h3>
 
+		<p>Here's a link with Tappy applied: <a href="http://example.com" class="tappy">Tappy!</a></p>
 
-<h2>Source</h2>
-<pre><code>
-&lt;script src=&quot;http://code.jquery.com/jquery-2.0.3.min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;tappy.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-$( &quot;a&quot; ).bind( &quot;tap&quot;, function( e ){
-	alert( e.target + &quot;was tapped!&quot; );
-});
-&lt;/script&gt;
-</code></pre>
+		<h2>Source</h2>
+		<pre><code>
+		&lt;script src=&quot;http://code.jquery.com/jquery-2.0.3.min.js&quot;&gt;&lt;/script&gt;
+		&lt;script src=&quot;tappy.js&quot;&gt;&lt;/script&gt;
+		&lt;script&gt;
+		$( &quot;a&quot; ).bind( &quot;tap&quot;, function( e ){
+			alert( e.target + &quot;was tapped!&quot; );
+		});
+		&lt;/script&gt;
+		</code></pre>
+	</div>
 
 	<script>
 		$( "a" ).bind( "tap", function( e ){
