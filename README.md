@@ -1,18 +1,17 @@
-Tappy! 
-=====
+# Tappy! 
+
+[![Filament Group](http://filamentgroup.com/images/fg-logo-positive-sm-crop.png) ](http://www.filamentgroup.com/)
 
 Tappy is a minimal normalized tap event that works with touch, mouse, keyboard, and probably other inputs too.
 
-Copyright 2013 @scottjehl, Filament Group, Inc. Licensed MIT
+©2013 @scottjehl, Filament Group, Inc. Licensed MIT
 
-Why
-===
+## Why
 
 Tappy allows you to bind to a `tap` event like you would any other user interaction, like `click`. The advantage of usting Tappy's  `tap` event over `click` is that it will allow you to execute code immediately on touch devices, eliminating the 300ms delay that click events have on platforms like iOS. Once bound to an element, Tappy's `tap` event will fire upon touch or other traditional interactions like mouse click, pressing the enter key, and more. 
 
 
-How-to
-===
+## How-to
 
 Tappy requires jQuery, or a similar framework of matching API conventions. 
 
@@ -34,8 +33,7 @@ $( "a.my-link" ).bind( "tap", function( e ){
 ```
 
 
-Notes:
-===
+## Notes:
 
 This plugin makes several assumptions that may not work well for your project, but we've found them easy enough to work around.
 
