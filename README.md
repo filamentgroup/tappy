@@ -24,12 +24,17 @@ $( "a.my-link" ).bind( "tap", function( e ){
 ```
 In binding to the `tap` event, you'll be automatically preventing the browser's default click handling on the element, so be sure to handle that tap responsibly.
 
-To use tappy to create fast-click navigation, you could do something like this:
+To use tappy to create fast-click navigation, you could do something like this on domready:
 
 ``` js
-$( "a.my-link" ).bind( "tap", function( e ){ 
-  // go to the e.target.href URL
-}); 
+$( "a" ).each( function(){
+  var href = $( this ).attr( "href" );
+  if( href.indexOf( "#" ) !== 0 ){
+				$( this ).bind( "tap", function(){
+					window.location.href = this.href;
+				});
+			}
+} );
 ```
 
 
