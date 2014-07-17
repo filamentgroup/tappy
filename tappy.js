@@ -14,8 +14,13 @@
 				cancel,
 				scrollTolerance = 10;
 
-			function trigger( e ){
-				$( e.target ).trigger( "tap", [ e, $( e.target ).attr( "href" ) ] );
+			function trigger( e, eventHandler){
+				if(eventHandler && eventHandler.namespace){
+					$( e.target ).trigger( "tap." + eventHandler.namespace, [ e, $( e.target ).attr( "href" ) ] );
+				}else{
+					$( e.target ).trigger( "tap", [ e, $( e.target ).attr( "href" ) ] );
+				}
+
 				e.stopImmediatePropagation();
 			}
 
@@ -62,12 +67,9 @@
 					return;
 				}
 
-				e.preventDefault();
-
-				// this part prevents a double callback from touch and mouse on the same tap
-
 				// if a scroll happened between touchstart and touchend
 				if( cancel || w.tapHandling && w.tapHandling !== e.type ){
+					e.preventDefault();
 					cancel = false;
 					return;
 				}
@@ -88,10 +90,10 @@
 	if( $.event && $.event.special ){
 		$.event.special.tap = {
 			add: function( handleObj ) {
-				tap( $( this ), true );
+				tap( $( this ), handleObj, true );
 			},
 			remove: function( handleObj ) {
-				tap( $( this ), false );
+				tap( $( this ), handleObj, false );
 			}
 		};
 	}
@@ -100,7 +102,7 @@
 		var oldBind = $.fn.bind;
 		$.fn.bind = function( evt ){
 			if( /(^| )tap( |$)/.test( evt ) ){
-				tap( this );
+				tap( this, evt );
 			}
 			return oldBind.apply( this, arguments );
 		};
