@@ -58,7 +58,8 @@
 					cancel = false;
 				}, 1000 );
 
-				if( e.ctrlKey || e.metaKey ){
+				// make sure no modifiers are present. thx http://www.jacklmoore.com/notes/click-events/
+				if( ( e.which && e.which > 1 ) || e.shiftKey || e.altKey || e.metaKey || e.ctrlKey ){
 					return;
 				}
 
