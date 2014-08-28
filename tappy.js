@@ -78,32 +78,43 @@
 			}
 
 			$el
-				.bind( "touchstart MSPointerDown", start )
-				.bind( "touchmove MSPointerMove", move )
-				.bind( "touchend MSPointerUp", end )
-				.bind( "click", end );
+				.bind( "touchstart.tappy MSPointerDown.tappy", start )
+				.bind( "touchmove.tappy MSPointerMove.tappy", move )
+				.bind( "touchend.tappy MSPointerUp.tappy", end )
+				.bind( "click.tappy", end );
 		});
+	};
+
+	var untap = function( $els ){
+		return $els.unbind( ".tappy" );
 	};
 
 	// use special events api
 	if( $.event && $.event.special ){
 		$.event.special.tap = {
 			add: function( handleObj ) {
-				tap( $( this ), true );
+				tap( $( this ) );
 			},
 			remove: function( handleObj ) {
-				tap( $( this ), false );
+				untap( $( this ) );
 			}
 		};
 	}
 	else{
 		// monkeybind
-		var oldBind = $.fn.bind;
+		var oldBind = $.fn.bind,
+			oldUnbind = $.fn.unbind;
 		$.fn.bind = function( evt ){
 			if( /(^| )tap( |$)/.test( evt ) ){
 				tap( this );
 			}
 			return oldBind.apply( this, arguments );
+		};
+		$.fn.unbind = function( evt ){
+			if( /(^| )tap( |$)/.test( evt ) ){
+				untap( this );
+			}
+			return oldUnbind.apply( this, arguments );
 		};
 	}
 
