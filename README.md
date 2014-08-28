@@ -37,6 +37,11 @@ $( "a" ).each( function(){
 } );
 ```
 
+### Unbinding
+
+``` js
+$( "a.my-link" ).unbind( "tap" ); 
+```
 
 ## Notes:
 
