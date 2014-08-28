@@ -114,7 +114,7 @@
 			if( /(^| )tap( |$)/.test( evt ) ){
 				untap( this );
 			}
-			return oldUnBind.apply( this, arguments );
+			return oldUnbind.apply( this, arguments );
 		};
 	}
 
