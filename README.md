@@ -72,3 +72,22 @@ $( ".bar" ).bind( "tap", function(){
 ```
 
 If you do this, when the `.bar` element is tapped on, due to the nature of how the event is normalized, the callback function for bar will be called twice.
+
+
+- Do not bind a tap event more than once to a single element. Ex:
+
+```html
+<button class="btn-classy">Don't Push Me</button>
+```
+
+```js
+$( ".btn-classy" ).bind( "tap", function(){
+    console.log( "I'm so classy" );
+});
+
+$( ".btn-classy" ).bind( "tap", function(){
+    console.log( "Cuz I'm close to the... edge." );
+});
+```
+
+If you do this, when the `<button>` is clicked, both callback functions will be called, twice.
