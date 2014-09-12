@@ -51,3 +51,24 @@ Tappy works best when bound directly to a tappable element. In its current state
 
 This plugin is built using a very limited portion of jQuery's API in attempt to be compatible with slimmer libraries that share jQuery's syntax. That's why it monkey-patches `bind` for example, rather than using the Special Events API. That said, we could make those changes, but this is working pretty well for our admittedly specific needs at the moment.
 
+## What Not To Do
+
+- Do not bind a child node to the tap event when a parent node is already bound. Ex:
+``` html
+<div class="foo">
+    <div class="bar">
+    </div>
+</div>
+```
+
+``` js
+$( ".foo" ).bind( "tap", function(){
+    foo();
+});
+
+$( ".bar" ).bind( "tap", function(){
+    bar();
+});
+```
+
+If you do this, when the `.bar` element is tapped on, due to the nature of how the event is normalized, the callback function for bar will be called twice.
