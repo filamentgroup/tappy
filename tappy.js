@@ -3,6 +3,7 @@
 
 	// handling flag is true when an event sequence is in progress (thx androood)
 	w.tapHandling = false;
+	w.tappy = true;
 
 	var tap = function( $els ){
 		return $els.each(function(){
