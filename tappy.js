@@ -104,13 +104,13 @@
 		// monkeybind
 		var oldBind = $.fn.bind,
 			oldUnbind = $.fn.unbind;
-		$.fn.bind = function( evt ){
+		$.fn.bind = $.fn.on = function( evt ){
 			if( /(^| )tap( |$)/.test( evt ) ){
 				tap( this );
 			}
 			return oldBind.apply( this, arguments );
 		};
-		$.fn.unbind = function( evt ){
+		$.fn.unbind = $.fn.off = function( evt ){
 			if( /(^| )tap( |$)/.test( evt ) ){
 				untap( this );
 			}
