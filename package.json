@@ -1,0 +1,23 @@
+{
+  "name": "tappy",
+  "version": "0.1.3",
+  "description": "A lightweight normalized tap event.",
+  "main": "tappy.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/filamentgroup/tappy.git"
+  },
+  "keywords": [
+    "tap",
+    "touch",
+    "click"
+  ],
+  "author": "Filament Group <hello@filamentgroup.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/filamentgroup/tappy/issues"
+  },
+  "homepage": "https://github.com/filamentgroup/tappy"
+}
