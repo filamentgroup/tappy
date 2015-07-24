@@ -37,15 +37,20 @@
 				}
 
 				var coords = getCoords( e );
-				startX = coords[ 0 ];
-				startY = coords[ 1 ];
+				if ( coords ) {
+					startX = coords[ 0 ];
+					startY = coords[ 1 ];
+				} else {
+					startX = false;
+					startY = false;
+				}
 			}
 
 			// any touchscroll that results in > tolerance should cancel the tap
 			function move( e ){
 				if( !cancel ){
 					var coords = getCoords( e );
-					if( coords && ( Math.abs( startY - coords[ 1 ] ) > scrollTolerance || Math.abs( startX - coords[ 0 ] ) > scrollTolerance ) ){
+					if( startX !== false && startY !== false && coords && ( Math.abs( startY - coords[ 1 ] ) > scrollTolerance || Math.abs( startX - coords[ 0 ] ) > scrollTolerance ) ){
 						cancel = true;
 					}
 				}
