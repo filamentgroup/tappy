@@ -105,13 +105,13 @@
 		var oldBind = $.fn.bind,
 			oldUnbind = $.fn.unbind;
 		$.fn.bind = function( evt ){
-			if( /(^| )tap( |$)/.test( evt ) ){
+			if( /(^| )tap( |\.|$)/.test( evt ) ){
 				tap( this );
 			}
 			return oldBind.apply( this, arguments );
 		};
 		$.fn.unbind = function( evt ){
-			if( /(^| )tap( |$)/.test( evt ) ){
+			if( /(^| )tap( |\.|$)/.test( evt ) ){
 				untap( this );
 			}
 			return oldUnbind.apply( this, arguments );
