@@ -17,6 +17,7 @@
 
 			function trigger( e ){
 				$( e.target ).trigger( "tap", [ e, $( e.target ).attr( "href" ) ] );
+				e.stopImmediatePropagation();
 			}
 
 			function getCoords( e ){
