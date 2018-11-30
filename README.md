@@ -1,4 +1,6 @@
-# Tappy! 
+# 🚫 Retired: Tappy! 
+
+Per [our unmaintained repository status documentation](https://github.com/filamentgroup/standards-and-conventions/blob/master/repository-maintenance.md#unmaintained) this repository is now retired and is no longer accepting issue reports or pull requests. The touch delay in web browsers has [been solved natively](https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away)! Hooray 🎉!
 
 [![Filament Group](http://filamentgroup.com/images/fg-logo-positive-sm-crop.png) ](http://www.filamentgroup.com/)
 
